@@ -24,6 +24,7 @@ public struct DSButtonConfig {
     public let style: DSButtonStyle
     public let size: DSButtonSize
     public let icon: Image?
+    public let iconView: AnyView?
     public let iconPosition: DSButtonIconPosition
     public let isFullWidth: Bool
 
@@ -31,12 +32,29 @@ public struct DSButtonConfig {
         style: DSButtonStyle = .primary,
         size: DSButtonSize = .medium,
         icon: Image? = nil,
+        iconView: AnyView? = nil,
         iconPosition: DSButtonIconPosition = .leading,
         isFullWidth: Bool = false
     ) {
         self.style = style
         self.size = size
         self.icon = icon
+        self.iconView = iconView
+        self.iconPosition = iconPosition
+        self.isFullWidth = isFullWidth
+    }
+
+    public init(
+        style: DSButtonStyle = .primary,
+        size: DSButtonSize = .medium,
+        icon: DSImage,
+        iconPosition: DSButtonIconPosition = .leading,
+        isFullWidth: Bool = false
+    ) {
+        self.style = style
+        self.size = size
+        self.icon = nil
+        self.iconView = AnyView(icon)
         self.iconPosition = iconPosition
         self.isFullWidth = isFullWidth
     }
@@ -212,18 +230,28 @@ public struct DSButton: View {
                     label
                         .foregroundColor(model.foreground)
                 } else if let title {
-                    if let icon = config.icon, config.iconPosition == .leading {
-                        icon
-                            .foregroundColor(model.iconColor)
+                    if config.iconPosition == .leading {
+                        if let iconView = config.iconView {
+                            iconView
+                                .foregroundColor(model.iconColor)
+                        } else if let icon = config.icon {
+                            icon
+                                .foregroundColor(model.iconColor)
+                        }
                     }
 
                     Text(title)
                         .font(model.font)
                         .foregroundColor(model.foreground)
 
-                    if let icon = config.icon, config.iconPosition == .trailing {
-                        icon
-                            .foregroundColor(model.iconColor)
+                    if config.iconPosition == .trailing {
+                        if let iconView = config.iconView {
+                            iconView
+                                .foregroundColor(model.iconColor)
+                        } else if let icon = config.icon {
+                            icon
+                                .foregroundColor(model.iconColor)
+                        }
                     }
                 }
             }

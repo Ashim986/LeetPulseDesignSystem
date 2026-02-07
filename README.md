@@ -82,6 +82,43 @@ DSMetricCard(
     trendLabel: "+12%"
 )
 
+DSTabBar(
+    items: [
+        DSNavItem(id: "today", title: "Today", systemImage: "house"),
+        DSNavItem(id: "plan", title: "Plan", systemImage: "calendar"),
+        DSNavItem(id: "stats", title: "Stats", systemImage: "chart.bar")
+    ],
+    state: .init(selectedId: "today")
+) { _ in }
+
+DSSidebar(
+    items: [
+        DSNavItem(id: "focus", title: "Focus", systemImage: "bolt"),
+        DSNavItem(id: "coding", title: "Coding", systemImage: "chevron.left.slash.chevron.right")
+    ],
+    state: .init(selectedId: "focus")
+) { _ in }
+
+DSTabScaffold(
+    items: [
+        DSNavItem(id: "today", title: "Today", systemImage: "house"),
+        DSNavItem(id: "plan", title: "Plan", systemImage: "calendar")
+    ],
+    state: .init(selectedId: "today")
+) { _ in
+    Text("Content")
+}
+
+DSSidebarScaffold(
+    items: [
+        DSNavItem(id: "stats", title: "Stats", systemImage: "chart.bar"),
+        DSNavItem(id: "focus", title: "Focus", systemImage: "bolt")
+    ],
+    state: .init(selectedId: "stats")
+) { _ in
+    Text("Content")
+}
+
 DSToast(
     title: "Synced",
     message: "LeetCode updated",
@@ -113,6 +150,39 @@ DSTreeGraphView(
     pointers: [DSPointerMarker(name: "root", nodeId: "root")]
 )
 ```
+
+## Component Catalog
+- DSAlert
+- DSArrow
+- DSBadge
+- DSBubble
+- DSButton
+- DSCard
+- DSCurvedArrow
+- DSEmptyState
+- DSFormField
+- DSGraphView
+- DSHeader
+- DSListRow
+- DSMetricCard
+- DSPointerBadge
+- DSProgressRing
+- DSScaffolds (DSTabScaffold, DSSidebarScaffold)
+- DSSectionHeader
+- DSSegmentedControl
+- DSSidebar
+- DSSelect
+- DSTabBar
+- DSTextArea
+- DSTextField
+- DSToast
+- DSToggle
+- DSTreeGraphView
+
+## Documentation
+- iOS + iPadOS roadmap: `Docs/IOS_IPADOS_ROADMAP.md`
+- Development guide: `Docs/DEVELOPMENT_GUIDE.md`
+- Sample screens: `Sources/FocusDesignSystemComponents/Examples/DSSampleScreens.swift`
 
 ## Primitives (Intended Scope)
 The following primitives are designed for cross-platform reuse and should stay

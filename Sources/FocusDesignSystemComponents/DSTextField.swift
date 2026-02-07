@@ -152,6 +152,9 @@ public struct DSTextField: View {
     private let placeholder: String
     private let config: DSTextFieldConfig
     private let state: DSTextFieldState
+    private let validator: DSValidator?
+    private let validationPolicy: DSTextInputValidationPolicy
+    private let onValidation: ((DSValidationResult) -> Void)?
     private let onFocusChange: ((Bool) -> Void)?
     @Binding private var text: String
 
@@ -164,6 +167,9 @@ public struct DSTextField: View {
         text: Binding<String>,
         config: DSTextFieldConfig = DSTextFieldConfig(),
         state: DSTextFieldState = DSTextFieldState(),
+        validator: DSValidator? = nil,
+        validationPolicy: DSTextInputValidationPolicy = .manual,
+        onValidation: ((DSValidationResult) -> Void)? = nil,
         onFocusChange: ((Bool) -> Void)? = nil
     ) {
         self.title = title
@@ -171,6 +177,9 @@ public struct DSTextField: View {
         self._text = text
         self.config = config
         self.state = state
+        self.validator = validator
+        self.validationPolicy = validationPolicy
+        self.onValidation = onValidation
         self.onFocusChange = onFocusChange
     }
 
@@ -199,8 +208,17 @@ public struct DSTextField: View {
                     .foregroundColor(theme.colors.danger)
             }
         }
+        .onChange(of: text) { _, _ in
+            validateIfNeeded(trigger: .onChange)
+        }
         .onChange(of: isFocused) { _, newValue in
+            if !newValue {
+                validateIfNeeded(trigger: .onBlur)
+            }
             onFocusChange?(newValue)
+        }
+        .onSubmit {
+            validateIfNeeded(trigger: .onSubmit)
         }
     }
 
@@ -220,6 +238,23 @@ public struct DSTextField: View {
                 .padding(model.padding)
                 .focused($isFocused)
                 .disabled(!state.isEnabled)
+        }
+    }
+
+    private func validateIfNeeded(trigger: DSTextInputValidationPolicy) {
+        guard validationPolicy == trigger, let validator else { return }
+        let result = validator.validate(text)
+        onValidation?(result)
+    }
+}
+
+public extension DSTextFieldValidation {
+    init(result: DSValidationResult) {
+        switch result {
+        case .valid:
+            self = .valid
+        case .invalid(let message):
+            self = .invalid(message)
         }
     }
 }

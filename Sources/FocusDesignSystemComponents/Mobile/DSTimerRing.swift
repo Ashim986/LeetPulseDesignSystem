@@ -12,7 +12,22 @@ public struct DSTimerRing: View {
     var ringColor: Color = DSMobileColor.red
     var size: CGFloat = 280
 
-    var body: some View {
+
+    public init(
+        timeText: String = "25:00",
+        statusText: String = "PAUSED",
+        progress: Double = 0.0,
+        ringColor: Color = DSMobileColor.red,
+        size: CGFloat = 280
+    ) {
+        self.timeText = timeText
+        self.statusText = statusText
+        self.progress = progress
+        self.ringColor = ringColor
+        self.size = size
+    }
+
+    public var body: some View {
         ZStack {
             // Track circle
             Circle()

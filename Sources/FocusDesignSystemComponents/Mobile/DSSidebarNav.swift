@@ -28,7 +28,12 @@ public enum SidebarItem: String, CaseIterable {
 public struct DSSidebarNav: View {
     @Binding var selectedItem: SidebarItem
 
-    var body: some View {
+
+    public init(selectedItem: Binding<SidebarItem>) {
+        self._selectedItem = selectedItem
+    }
+
+    public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // Title
             Text("FocusApp")

@@ -9,7 +9,13 @@ public struct DSMetricCardView: View {
     var label: String
     var value: String
 
-    var body: some View {
+
+    public init(label: String, value: String) {
+        self.label = label
+        self.value = value
+    }
+
+    public var body: some View {
         DSSurfaceCard {
             VStack(spacing: DSMobileSpacing.space4) {
                 Text(label)

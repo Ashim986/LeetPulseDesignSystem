@@ -36,7 +36,12 @@ public enum AppTab: String, CaseIterable {
 public struct DSBottomTabBar: View {
     @Binding var selectedTab: AppTab
 
-    var body: some View {
+
+    public init(selectedTab: Binding<AppTab>) {
+        self._selectedTab = selectedTab
+    }
+
+    public var body: some View {
         VStack(spacing: 0) {
             // Top border
             Rectangle()

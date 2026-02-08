@@ -14,7 +14,12 @@ public struct DSCalendarGrid: View {
     private let daysInMonth = 28
     private let startOffset = 0 // Sunday = 0
 
-    var body: some View {
+
+    public init(month: String = "February 2026") {
+        self.month = month
+    }
+
+    public var body: some View {
         DSSurfaceCard {
             VStack(spacing: DSMobileSpacing.space16) {
                 // Header: Month + arrows

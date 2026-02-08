@@ -9,7 +9,13 @@ public struct DSDailyGoalCard: View {
     var completed: Int = 1
     var total: Int = 4
 
-    var body: some View {
+
+    public init(completed: Int = 1, total: Int = 4) {
+        self.completed = completed
+        self.total = total
+    }
+
+    public var body: some View {
         VStack(alignment: .leading, spacing: DSMobileSpacing.space12) {
             // Row 1: Icon + Label
             HStack {

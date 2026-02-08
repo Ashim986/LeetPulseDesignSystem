@@ -34,7 +34,22 @@ public struct DSTaskRow: View {
     var difficulty: TaskRowDifficulty?
     var progressText: String? // e.g. "1/4" for habit rows
 
-    var body: some View {
+
+    public init(
+        title: String,
+        subtitle: String? = nil,
+        isCompleted: Bool = false,
+        difficulty: TaskRowDifficulty? = nil,
+        progressText: String? = nil
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.isCompleted = isCompleted
+        self.difficulty = difficulty
+        self.progressText = progressText
+    }
+
+    public var body: some View {
         HStack(spacing: DSMobileSpacing.space12) {
             // Check icon
             if isCompleted {
@@ -92,7 +107,12 @@ public struct DSTaskRow: View {
 public struct DSDifficultyBadge: View {
     var difficulty: TaskRowDifficulty
 
-    var body: some View {
+
+    public init(difficulty: TaskRowDifficulty) {
+        self.difficulty = difficulty
+    }
+
+    public var body: some View {
         Text(difficulty.rawValue)
             .font(DSMobileTypography.captionStrong)
             .foregroundColor(difficulty.textColor)

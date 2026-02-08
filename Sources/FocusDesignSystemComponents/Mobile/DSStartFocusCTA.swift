@@ -8,7 +8,12 @@ import FocusDesignSystemCore
 public struct DSStartFocusCTA: View {
     var onTap: (() -> Void)?
 
-    var body: some View {
+
+    public init(onTap: (() -> Void)? = nil) {
+        self.onTap = onTap
+    }
+
+    public var body: some View {
         Button {
             onTap?()
         } label: {

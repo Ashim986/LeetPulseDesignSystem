@@ -9,7 +9,13 @@ public struct DSFocusTimeCard: View {
     var focusTime: String = "2h 15m"
     var remainingText: String = "35m remaining today"
 
-    var body: some View {
+
+    public init(focusTime: String = "2h 15m", remainingText: String = "35m remaining today") {
+        self.focusTime = focusTime
+        self.remainingText = remainingText
+    }
+
+    public var body: some View {
         DSSurfaceCard {
             HStack(spacing: DSMobileSpacing.space12) {
                 // Pulse icon in circle

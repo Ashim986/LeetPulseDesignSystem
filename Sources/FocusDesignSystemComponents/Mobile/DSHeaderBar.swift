@@ -10,7 +10,18 @@ public struct DSHeaderBar: View {
     var showSettings: Bool = true
     var onSettingsTap: (() -> Void)?
 
-    var body: some View {
+
+    public init(
+        title: String = "FocusApp",
+        showSettings: Bool = true,
+        onSettingsTap: (() -> Void)? = nil
+    ) {
+        self.title = title
+        self.showSettings = showSettings
+        self.onSettingsTap = onSettingsTap
+    }
+
+    public var body: some View {
         HStack {
             Spacer()
 

@@ -17,7 +17,20 @@ public struct DSScheduleRow: View {
     var subtitle: String
     var state: ScheduleRowState = .normal
 
-    var body: some View {
+
+    public init(
+        time: String,
+        title: String,
+        subtitle: String,
+        state: ScheduleRowState = .normal
+    ) {
+        self.time = time
+        self.title = title
+        self.subtitle = subtitle
+        self.state = state
+    }
+
+    public var body: some View {
         HStack(spacing: DSMobileSpacing.space16) {
             Text(time)
                 .font(DSMobileTypography.subbodyStrong)

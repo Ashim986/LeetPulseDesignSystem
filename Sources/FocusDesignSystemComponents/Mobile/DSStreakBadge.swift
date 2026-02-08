@@ -8,7 +8,12 @@ import FocusDesignSystemCore
 public struct DSStreakBadge: View {
     var streakDays: Int = 12
 
-    var body: some View {
+
+    public init(streakDays: Int = 12) {
+        self.streakDays = streakDays
+    }
+
+    public var body: some View {
         HStack(spacing: DSMobileSpacing.space4) {
             Text("🔥")
                 .font(.system(size: 14))

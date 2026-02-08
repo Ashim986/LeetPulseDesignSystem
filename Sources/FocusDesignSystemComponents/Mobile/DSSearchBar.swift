@@ -9,7 +9,13 @@ public struct DSSearchBar: View {
     @Binding var text: String
     var placeholder: String = "Search problems..."
 
-    var body: some View {
+
+    public init(text: Binding<String>, placeholder: String = "Search problems...") {
+        self._text = text
+        self.placeholder = placeholder
+    }
+
+    public var body: some View {
         HStack(spacing: DSMobileSpacing.space8) {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 16))

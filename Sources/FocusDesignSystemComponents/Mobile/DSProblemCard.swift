@@ -10,7 +10,14 @@ public struct DSProblemCard: View {
     var difficulty: TaskRowDifficulty
     var isSolved: Bool = false
 
-    var body: some View {
+
+    public init(title: String, difficulty: TaskRowDifficulty, isSolved: Bool = false) {
+        self.title = title
+        self.difficulty = difficulty
+        self.isSolved = isSolved
+    }
+
+    public var body: some View {
         DSSurfaceCard(padding: DSMobileSpacing.space16) {
             HStack {
                 VStack(alignment: .leading, spacing: DSMobileSpacing.space4) {

@@ -11,7 +11,20 @@ public struct DSSettingsRow: View {
     var subtitle: String?
     var statusText: String?
 
-    var body: some View {
+
+    public init(
+        iconName: String,
+        title: String,
+        subtitle: String? = nil,
+        statusText: String? = nil
+    ) {
+        self.iconName = iconName
+        self.title = title
+        self.subtitle = subtitle
+        self.statusText = statusText
+    }
+
+    public var body: some View {
         HStack(spacing: DSMobileSpacing.space12) {
             // Icon in circle
             ZStack {

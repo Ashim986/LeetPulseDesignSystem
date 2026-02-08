@@ -22,38 +22,47 @@ public enum PomodoroSegment: String, CaseIterable {
 public struct DSPomodoroSegmentedControl: View {
     @Binding var selected: PomodoroSegment
 
-    var body: some View {
+    public init(selected: Binding<PomodoroSegment>) {
+        self._selected = selected
+    }
+
+    public var body: some View {
         HStack(spacing: 0) {
             ForEach(PomodoroSegment.allCases, id: \.self) { segment in
-                Button {
-                    withAnimation(.easeInOut(duration: 0.2)) {
-                        selected = segment
-                    }
-                } label: {
-                    HStack(spacing: DSMobileSpacing.space4) {
-                        Image(systemName: segment.iconName)
-                            .font(.system(size: 14))
-                        Text(segment.rawValue)
-                            .font(DSMobileTypography.subbodyStrong)
-                    }
-                    .foregroundColor(
-                        selected == segment ? DSMobileColor.gray900 : DSMobileColor.gray500
-                    )
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 36)
-                    .background(
-                        selected == segment
-                            ? DSMobileColor.surface
-                                .shadow(.drop(color: .black.opacity(0.05), radius: 3, y: 1))
-                            : Color.clear
-                    )
-                    .clipShape(Capsule())
-                }
-                .buttonStyle(.plain)
+                segmentButton(for: segment)
             }
         }
         .padding(DSMobileSpacing.space4)
         .background(DSMobileColor.gray100)
+        .clipShape(Capsule())
+    }
+
+    @ViewBuilder
+    private func segmentButton(for segment: PomodoroSegment) -> some View {
+        let isSelected = selected == segment
+        Button {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                selected = segment
+            }
+        } label: {
+            segmentLabel(for: segment, isSelected: isSelected)
+        }
+        .buttonStyle(.plain)
+    }
+
+    @ViewBuilder
+    private func segmentLabel(for segment: PomodoroSegment, isSelected: Bool) -> some View {
+        HStack(spacing: DSMobileSpacing.space4) {
+            Image(systemName: segment.iconName)
+                .font(.system(size: 14))
+            Text(segment.rawValue)
+                .font(DSMobileTypography.subbodyStrong)
+        }
+        .foregroundColor(isSelected ? DSMobileColor.gray900 : DSMobileColor.gray500)
+        .frame(maxWidth: .infinity)
+        .frame(height: 36)
+        .background(isSelected ? DSMobileColor.surface : Color.clear)
+        .shadow(color: isSelected ? .black.opacity(0.05) : .clear, radius: 3, y: 1)
         .clipShape(Capsule())
     }
 }

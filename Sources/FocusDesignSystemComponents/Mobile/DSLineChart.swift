@@ -12,7 +12,22 @@ public struct DSLineChart: View {
     var title: String = "Problems Solved"
     var lineColor: Color = DSMobileColor.green
 
-    var body: some View {
+
+    public init(
+        data: [CGFloat] = [3, 5, 4, 8, 6, 9, 7],
+        labels: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        maxValue: CGFloat = 12,
+        title: String = "Problems Solved",
+        lineColor: Color = DSMobileColor.green
+    ) {
+        self.data = data
+        self.labels = labels
+        self.maxValue = maxValue
+        self.title = title
+        self.lineColor = lineColor
+    }
+
+    public var body: some View {
         DSSurfaceCard {
             VStack(alignment: .leading, spacing: DSMobileSpacing.space12) {
                 Text(title)

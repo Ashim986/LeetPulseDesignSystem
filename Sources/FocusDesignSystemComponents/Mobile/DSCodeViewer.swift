@@ -21,7 +21,28 @@ public struct DSCodeViewer: View {
     }
     """
 
-    var body: some View {
+
+    public init(
+        language: String = "TypeScript",
+        code: String = """
+        function twoSum(nums: number[], target: number): number[] {
+            const map = new Map<number, number>();
+            for (let i = 0; i < nums.length; i++) {
+                const complement = target - nums[i];
+                if (map.has(complement)) {
+                    return [map.get(complement)!, i];
+                }
+                map.set(nums[i], i);
+            }
+            return [];
+        }
+        """
+    ) {
+        self.language = language
+        self.code = code
+    }
+
+    public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             // Header
             HStack {

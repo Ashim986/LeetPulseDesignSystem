@@ -10,7 +10,18 @@ public struct DSSurfaceCard<Content: View>: View {
     var padding: CGFloat = DSMobileSpacing.space16
     @ViewBuilder var content: () -> Content
 
-    var body: some View {
+
+    public init(
+        cornerRadius: CGFloat = DSMobileRadius.medium,
+        padding: CGFloat = DSMobileSpacing.space16,
+        @ViewBuilder content: @escaping () -> Content
+    ) {
+        self.cornerRadius = cornerRadius
+        self.padding = padding
+        self.content = content
+    }
+
+    public var body: some View {
         content()
             .padding(padding)
             .background(DSMobileColor.surface)

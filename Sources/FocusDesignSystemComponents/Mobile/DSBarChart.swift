@@ -12,7 +12,22 @@ public struct DSBarChart: View {
     var title: String = "Weekly Focus Time"
     var barColor: Color = DSMobileColor.purple
 
-    var body: some View {
+
+    public init(
+        data: [CGFloat] = [4, 6, 3, 7, 5, 2, 8],
+        labels: [String] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+        maxValue: CGFloat = 8,
+        title: String = "Weekly Focus Time",
+        barColor: Color = DSMobileColor.purple
+    ) {
+        self.data = data
+        self.labels = labels
+        self.maxValue = maxValue
+        self.title = title
+        self.barColor = barColor
+    }
+
+    public var body: some View {
         DSSurfaceCard {
             VStack(alignment: .leading, spacing: DSMobileSpacing.space12) {
                 Text(title)

@@ -140,6 +140,8 @@ public struct DSTabBar: View {
                         RoundedRectangle(cornerRadius: theme.radii.md)
                             .fill(isSelected ? model.selectedBackground : Color.clear)
                     )
+                    // Ensure the whole item surface is tappable, not just glyph bounds.
+                    .contentShape(Rectangle())
                     .overlay(alignment: .topTrailing) {
                         if config.showsBadges, let badge = item.badge {
                             Text(badge)

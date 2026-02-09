@@ -141,10 +141,13 @@ public struct DSSidebar: View {
                     }
                     .padding(.vertical, theme.spacing.sm)
                     .padding(.horizontal, theme.spacing.md)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(
                         RoundedRectangle(cornerRadius: theme.radii.md)
                             .fill(isSelected ? model.selectedBackground : Color.clear)
                     )
+                    // Ensure the whole row surface is tappable, not just glyph bounds.
+                    .contentShape(Rectangle())
                 })
                 .buttonStyle(.plain)
                 .opacity(item.isEnabled ? 1.0 : 0.5)

@@ -48,6 +48,19 @@ public struct DSColors: Sendable {
     }
 }
 
+// MARK: - DSColors Utility Tokens
+
+public extension DSColors {
+    /// Transparent surface -- use via `theme.colors.surfaceClear` instead of `Color.clear`.
+    var surfaceClear: Color { Color.clear }
+
+    /// High-contrast foreground for use on top of visualization colors.
+    var foregroundOnViz: Color { Color.white }
+
+    /// Dimmed text for disabled controls.
+    var textDisabled: Color { textSecondary.opacity(0.6) }
+}
+
 public struct DSTypography: Sendable {
     public let title: Font
     public let subtitle: Font
@@ -117,6 +130,8 @@ public struct DSShadow: Sendable {
 public struct DSTheme: Sendable {
     public let kind: DSThemeKind
     public let colors: DSColors
+    public let vizColors: DSVizColors
+    public let gradients: DSGradients
     public let typography: DSTypography
     public let spacing: DSSpacing
     public let radii: DSRadii
@@ -125,6 +140,8 @@ public struct DSTheme: Sendable {
     public init(
         kind: DSThemeKind,
         colors: DSColors,
+        vizColors: DSVizColors,
+        gradients: DSGradients,
         typography: DSTypography,
         spacing: DSSpacing,
         radii: DSRadii,
@@ -132,12 +149,42 @@ public struct DSTheme: Sendable {
     ) {
         self.kind = kind
         self.colors = colors
+        self.vizColors = vizColors
+        self.gradients = gradients
         self.typography = typography
         self.spacing = spacing
         self.radii = radii
         self.shadow = shadow
     }
 }
+
+// MARK: - Color(hex: String)
+
+public extension Color {
+    /// Creates a color from a 6-digit hex string (e.g. "E69F00").
+    /// Leading "#" or "0x" prefixes are stripped automatically.
+    init(hex: String) {
+        let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        var int: UInt64 = 0
+        Scanner(string: hex).scanHexInt64(&int)
+        let red, green, blue: UInt64
+        switch hex.count {
+        case 6:
+            (red, green, blue) = (int >> 16, int >> 8 & 0xFF, int & 0xFF)
+        default:
+            (red, green, blue) = (0, 0, 0)
+        }
+        self.init(
+            .sRGB,
+            red: Double(red) / 255,
+            green: Double(green) / 255,
+            blue: Double(blue) / 255,
+            opacity: 1
+        )
+    }
+}
+
+// MARK: - Light and Dark Themes
 
 public extension DSTheme {
     static let light = DSTheme(
@@ -155,6 +202,28 @@ public extension DSTheme {
             success: Color(red: 0.09, green: 0.64, blue: 0.29),
             warning: Color(red: 0.96, green: 0.62, blue: 0.04),
             danger: Color(red: 0.86, green: 0.15, blue: 0.15)
+        ),
+        vizColors: DSVizColors(
+            primary: Color(hex: "E69F00"),     // Orange
+            secondary: Color(hex: "56B4E9"),   // Sky Blue
+            tertiary: Color(hex: "009E73"),    // Bluish Green
+            quaternary: Color(hex: "F0E442"),  // Yellow
+            quinary: Color(hex: "0072B2"),     // Blue
+            senary: Color(hex: "D55E00"),      // Vermillion
+            septenary: Color(hex: "CC79A7"),   // Reddish Purple
+            octenary: Color(hex: "000000")     // Black
+        ),
+        gradients: DSGradients(
+            purpleGradient: LinearGradient(
+                colors: [Color(hex: "6366F1"), Color(hex: "8B5CF6")],
+                startPoint: .leading,
+                endPoint: .trailing
+            ),
+            indigoGradient: LinearGradient(
+                colors: [Color(hex: "1E1B4B"), Color(hex: "312E81")],
+                startPoint: .top,
+                endPoint: .bottom
+            )
         ),
         typography: DSTypography(
             title: .system(size: 22, weight: .bold),
@@ -188,6 +257,28 @@ public extension DSTheme {
             success: Color(red: 0.29, green: 0.87, blue: 0.5),
             warning: Color(red: 0.98, green: 0.75, blue: 0.21),
             danger: Color(red: 0.97, green: 0.44, blue: 0.44)
+        ),
+        vizColors: DSVizColors(
+            primary: Color(hex: "FFB733"),     // Lightened Orange
+            secondary: Color(hex: "7CC8F0"),   // Lightened Sky Blue
+            tertiary: Color(hex: "33C49A"),    // Lightened Bluish Green
+            quaternary: Color(hex: "F5ED6E"),  // Lightened Yellow
+            quinary: Color(hex: "3399CC"),     // Lightened Blue
+            senary: Color(hex: "FF8533"),      // Lightened Vermillion
+            septenary: Color(hex: "DDA0C0"),   // Lightened Reddish Purple
+            octenary: Color(hex: "FFFFFF")     // White
+        ),
+        gradients: DSGradients(
+            purpleGradient: LinearGradient(
+                colors: [Color(hex: "818CF8"), Color(hex: "A78BFA")],
+                startPoint: .leading,
+                endPoint: .trailing
+            ),
+            indigoGradient: LinearGradient(
+                colors: [Color(hex: "312E81"), Color(hex: "4338CA")],
+                startPoint: .top,
+                endPoint: .bottom
+            )
         ),
         typography: DSTypography(
             title: .system(size: 22, weight: .bold),

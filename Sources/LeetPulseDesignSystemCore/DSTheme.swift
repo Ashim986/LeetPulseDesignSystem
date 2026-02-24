@@ -190,15 +190,15 @@ public extension DSTheme {
     static let light = DSTheme(
         kind: .light,
         colors: DSColors(
-            background: Color(red: 0.97, green: 0.97, blue: 0.98),
+            background: Color(hex: "F8F7FC"),          // Light purple tint
             surface: Color.white,
-            surfaceElevated: Color.white,
-            primary: Color(red: 0.15, green: 0.39, blue: 0.92),
+            surfaceElevated: Color(hex: "F0EFF6"),     // Light elevated
+            primary: Color(hex: "6B4EE6"),             // Slightly deeper purple
             secondary: Color(red: 0.28, green: 0.33, blue: 0.41),
-            accent: Color(red: 0.08, green: 0.72, blue: 0.66),
-            textPrimary: Color(red: 0.06, green: 0.09, blue: 0.16),
-            textSecondary: Color(red: 0.28, green: 0.33, blue: 0.41),
-            border: Color(red: 0.89, green: 0.91, blue: 0.94),
+            accent: Color(hex: "00B894"),              // Slightly muted cyan
+            textPrimary: Color(hex: "1A1A2E"),         // Dark purple-black
+            textSecondary: Color(red: 0.42, green: 0.42, blue: 0.50),
+            border: Color(hex: "E0DFF0"),              // Subtle light border
             success: Color(red: 0.09, green: 0.64, blue: 0.29),
             warning: Color(red: 0.96, green: 0.62, blue: 0.04),
             danger: Color(red: 0.86, green: 0.15, blue: 0.15)
@@ -215,12 +215,12 @@ public extension DSTheme {
         ),
         gradients: DSGradients(
             purpleGradient: LinearGradient(
-                colors: [Color(hex: "6366F1"), Color(hex: "8B5CF6")],
+                colors: [Color(hex: "6B4EE6"), Color(hex: "7C5CFC")],
                 startPoint: .leading,
                 endPoint: .trailing
             ),
             indigoGradient: LinearGradient(
-                colors: [Color(hex: "1E1B4B"), Color(hex: "312E81")],
+                colors: [Color(hex: "1A1A2E"), Color(hex: "2D2B55")],
                 startPoint: .top,
                 endPoint: .bottom
             )
@@ -245,15 +245,15 @@ public extension DSTheme {
     static let dark = DSTheme(
         kind: .dark,
         colors: DSColors(
-            background: Color(red: 0.04, green: 0.07, blue: 0.12),
-            surface: Color(red: 0.07, green: 0.1, blue: 0.16),
-            surfaceElevated: Color(red: 0.12, green: 0.16, blue: 0.23),
-            primary: Color(red: 0.38, green: 0.65, blue: 0.98),
+            background: Color(hex: "0F0F14"),          // Near-black purple
+            surface: Color(hex: "1A1A24"),             // Dark card
+            surfaceElevated: Color(hex: "242434"),     // Elevated dark
+            primary: Color(hex: "7C5CFC"),             // Vibrant purple
             secondary: Color(red: 0.58, green: 0.64, blue: 0.73),
-            accent: Color(red: 0.18, green: 0.84, blue: 0.75),
-            textPrimary: Color(red: 0.97, green: 0.98, blue: 0.99),
-            textSecondary: Color(red: 0.78, green: 0.82, blue: 0.88),
-            border: Color(red: 0.16, green: 0.2, blue: 0.27),
+            accent: Color(hex: "00D4AA"),              // Bright cyan
+            textPrimary: Color(hex: "F0F0F5"),         // Off-white
+            textSecondary: Color(hex: "8888A0"),       // Muted
+            border: Color(hex: "2A2A3A"),              // Subtle dark
             success: Color(red: 0.29, green: 0.87, blue: 0.5),
             warning: Color(red: 0.98, green: 0.75, blue: 0.21),
             danger: Color(red: 0.97, green: 0.44, blue: 0.44)
@@ -270,12 +270,12 @@ public extension DSTheme {
         ),
         gradients: DSGradients(
             purpleGradient: LinearGradient(
-                colors: [Color(hex: "818CF8"), Color(hex: "A78BFA")],
+                colors: [Color(hex: "7C5CFC"), Color(hex: "9B7DFF")],
                 startPoint: .leading,
                 endPoint: .trailing
             ),
             indigoGradient: LinearGradient(
-                colors: [Color(hex: "312E81"), Color(hex: "4338CA")],
+                colors: [Color(hex: "0F0F14"), Color(hex: "1A1A2E")],
                 startPoint: .top,
                 endPoint: .bottom
             )

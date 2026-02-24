@@ -4,60 +4,60 @@
 import PackageDescription
 
 let package = Package(
-    name: "FocusDesignSystem",
+    name: "LeetPulseDesignSystem",
     platforms: [
         .macOS(.v14),
         .iOS(.v26)
     ],
     products: [
         .library(
-            name: "FocusDesignSystem",
-            targets: ["FocusDesignSystem"]
+            name: "LeetPulseDesignSystem",
+            targets: ["LeetPulseDesignSystem"]
         ),
         .library(
-            name: "FocusDesignSystemCore",
-            targets: ["FocusDesignSystemCore"]
+            name: "LeetPulseDesignSystemCore",
+            targets: ["LeetPulseDesignSystemCore"]
         ),
         .library(
-            name: "FocusDesignSystemState",
-            targets: ["FocusDesignSystemState"]
+            name: "LeetPulseDesignSystemState",
+            targets: ["LeetPulseDesignSystemState"]
         ),
         .library(
-            name: "FocusDesignSystemComponents",
-            targets: ["FocusDesignSystemComponents"]
+            name: "LeetPulseDesignSystemComponents",
+            targets: ["LeetPulseDesignSystemComponents"]
         )
     ],
     targets: [
         .target(
-            name: "FocusDesignSystemCore"
+            name: "LeetPulseDesignSystemCore"
         ),
         .target(
-            name: "FocusDesignSystemState",
-            dependencies: ["FocusDesignSystemCore"]
+            name: "LeetPulseDesignSystemState",
+            dependencies: ["LeetPulseDesignSystemCore"]
         ),
         .target(
-            name: "FocusDesignSystemComponents",
-            dependencies: ["FocusDesignSystemCore", "FocusDesignSystemState"]
+            name: "LeetPulseDesignSystemComponents",
+            dependencies: ["LeetPulseDesignSystemCore", "LeetPulseDesignSystemState"]
         ),
         .target(
-            name: "FocusDesignSystem",
+            name: "LeetPulseDesignSystem",
             dependencies: [
-                "FocusDesignSystemCore",
-                "FocusDesignSystemState",
-                "FocusDesignSystemComponents"
+                "LeetPulseDesignSystemCore",
+                "LeetPulseDesignSystemState",
+                "LeetPulseDesignSystemComponents"
             ]
         ),
         .testTarget(
-            name: "FocusDesignSystemCoreTests",
-            dependencies: ["FocusDesignSystemCore"]
+            name: "LeetPulseDesignSystemCoreTests",
+            dependencies: ["LeetPulseDesignSystemCore"]
         ),
         .testTarget(
-            name: "FocusDesignSystemStateTests",
-            dependencies: ["FocusDesignSystemState"]
+            name: "LeetPulseDesignSystemStateTests",
+            dependencies: ["LeetPulseDesignSystemState"]
         ),
         .testTarget(
-            name: "FocusDesignSystemComponentsTests",
-            dependencies: ["FocusDesignSystemComponents"]
+            name: "LeetPulseDesignSystemComponentsTests",
+            dependencies: ["LeetPulseDesignSystemComponents"]
         )
     ]
 )

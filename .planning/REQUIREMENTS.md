@@ -9,10 +9,10 @@ Requirements for this documentation update milestone. Each maps to roadmap phase
 
 ### Naming Accuracy
 
-- [ ] **NAME-01**: All doc files use `LeetPulseDesignSystem` — zero occurrences of `FocusDesignSystem` in prose, headings, and code blocks
-- [ ] **NAME-02**: All import paths in code examples use correct module names (`LeetPulseDesignSystemCore`, `LeetPulseDesignSystemState`, `LeetPulseDesignSystemComponents`)
-- [ ] **NAME-03**: All file path references match actual filesystem paths (no `Sources/FocusDesignSystem*` references)
-- [ ] **NAME-04**: SPM installation instructions use correct package name and repository URL
+- [x] **NAME-01**: All doc files use `LeetPulseDesignSystem` — zero occurrences of `FocusDesignSystem` in prose, headings, and code blocks
+- [x] **NAME-02**: All import paths in code examples use correct module names (`LeetPulseDesignSystemCore`, `LeetPulseDesignSystemState`, `LeetPulseDesignSystemComponents`)
+- [x] **NAME-03**: All file path references match actual filesystem paths (no `Sources/FocusDesignSystem*` references)
+- [x] **NAME-04**: SPM installation instructions use correct package name and repository URL
 
 ### Component Catalog
 
@@ -28,7 +28,7 @@ Requirements for this documentation update milestone. Each maps to roadmap phase
 - [ ] **USAGE-03**: Theme setup instructions cover `DSThemeProvider`, light/dark selection, and `@Environment(\.dsTheme)` access
 - [ ] **USAGE-04**: Theming token reference lists all token names (colors, spacing, radii, typography) developers can use in custom components
 - [ ] **USAGE-05**: Validation framework usage shows correct import (`LeetPulseDesignSystemState`) and full form integration example (`DSFormField` + `DSTextField` + `DSValidationFactory`)
-- [ ] **USAGE-06**: Module dependency explanation clarifies which module to import for which use case (Core vs State vs Components vs umbrella)
+- [x] **USAGE-06**: Module dependency explanation clarifies which module to import for which use case (Core vs State vs Components vs umbrella)
 
 ### Developer Guides
 
@@ -79,17 +79,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAME-01 | Phase 1 | Pending |
-| NAME-02 | Phase 1 | Pending |
-| NAME-03 | Phase 1 | Pending |
-| NAME-04 | Phase 1 | Pending |
+| NAME-01 | Phase 1 | Complete |
+| NAME-02 | Phase 1 | Complete |
+| NAME-03 | Phase 1 | Complete |
+| NAME-04 | Phase 1 | Complete |
 | CATL-01 | Phase 1 | Pending |
 | CATL-02 | Phase 1 | Pending |
 | CATL-03 | Phase 1 | Pending |
 | CATL-04 | Phase 1 | Pending |
 | USAGE-03 | Phase 1 | Pending |
 | USAGE-04 | Phase 1 | Pending |
-| USAGE-06 | Phase 1 | Pending |
+| USAGE-06 | Phase 1 | Complete |
 | GUIDE-01 | Phase 2 | Pending |
 | GUIDE-02 | Phase 2 | Pending |
 | GUIDE-03 | Phase 2 | Pending |

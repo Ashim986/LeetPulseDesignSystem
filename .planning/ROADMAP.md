@@ -33,7 +33,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Rename pass: replace all FocusDesignSystem references, fix file paths, add SPM installation block, add module dependency decision table
+- [x] 01-01-PLAN.md — Rename pass: replace all FocusDesignSystem references, fix file paths, add SPM installation block, add module dependency decision table
 - [ ] 01-02-PLAN.md — Component catalog expansion: verify filesystem inventory, write 5-group catalog with mini tables, mark Mobile as iOS/iPadOS
 - [ ] 01-03-PLAN.md — Theme and token documentation: concept-first theme setup section, token reference tables for all token groups
 
@@ -101,7 +101,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. README — Naming Foundation and Component Catalog | 0/3 | Not started | - |
+| 1. README — Naming Foundation and Component Catalog | 1/3 | In progress | - |
 | 2. Developer Guides — DEVELOPMENT_GUIDE and VALIDATION | 0/3 | Not started | - |
 | 3. Per-Component Documentation — API Surface and Usage Examples | 0/3 | Not started | - |
 | 4. IOS_IPADOS_ROADMAP — Delivery Status | 0/1 | Not started | - |

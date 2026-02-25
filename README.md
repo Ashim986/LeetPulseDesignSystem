@@ -46,14 +46,122 @@ LeetPulseDesignSystem is organized into four Swift modules. The umbrella module 
 | Everything (recommended for apps) | `import LeetPulseDesignSystem` |
 
 ## Themes
+
+LeetPulseDesignSystem uses a centralized theme system. All components read design tokens — colors, typography, spacing, corner radii, shadows, and visualization colors — from a single `DSTheme` value. The theme is injected at the root of your view hierarchy via `DSThemeProvider` and accessed anywhere in the tree with `@Environment(\.dsTheme)`. Two built-in themes are provided: `.light` and `.dark`.
+
+**Set up the theme at your app root:**
+
 ```swift
 import LeetPulseDesignSystem
 
-let theme = DSTheme.light
-DSThemeProvider(theme: theme) {
+// Wrap your root view with DSThemeProvider
+DSThemeProvider(theme: .light) {
     ContentView()
 }
 ```
+
+**Access tokens in a custom view:**
+
+```swift
+struct MyView: View {
+    @Environment(\.dsTheme) var theme
+
+    var body: some View {
+        Text("Hello")
+            .foregroundStyle(theme.colors.textPrimary)
+            .font(theme.typography.body)
+            .padding(theme.spacing.md)
+    }
+}
+```
+
+**Switch to dark theme:**
+
+```swift
+DSThemeProvider(theme: .dark) {
+    ContentView()
+}
+```
+
+## Token Reference
+
+All tokens are accessed via `@Environment(\.dsTheme) var theme` and then `theme.<group>.<token>`.
+
+### Colors
+
+| Token | Purpose |
+|-------|---------|
+| `theme.colors.background` | App background |
+| `theme.colors.surface` | Card and panel surfaces |
+| `theme.colors.surfaceElevated` | Elevated surface (popovers, sheets) |
+| `theme.colors.primary` | Primary brand color (buttons, links, highlights) |
+| `theme.colors.secondary` | Secondary accent (supporting UI) |
+| `theme.colors.accent` | Accent color (badges, indicators) |
+| `theme.colors.textPrimary` | Primary text |
+| `theme.colors.textSecondary` | Secondary and supporting text |
+| `theme.colors.border` | Dividers and borders |
+| `theme.colors.success` | Success states |
+| `theme.colors.warning` | Warning states |
+| `theme.colors.danger` | Error and destructive states |
+| `theme.colors.surfaceClear` | Transparent surface (use instead of `Color.clear`) |
+| `theme.colors.foregroundOnViz` | High-contrast foreground for use over visualization colors |
+| `theme.colors.textDisabled` | Dimmed text for disabled controls |
+
+### Typography
+
+| Token | Usage |
+|-------|-------|
+| `theme.typography.title` | Page and section titles (22 pt bold) |
+| `theme.typography.subtitle` | Secondary headings (15 pt semibold) |
+| `theme.typography.body` | Body text (13 pt regular) |
+| `theme.typography.caption` | Small labels and metadata (11 pt regular) |
+| `theme.typography.mono` | Code and monospaced text (12 pt monospaced) |
+
+### Spacing
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `theme.spacing.xs` | 4 pt | Tight spacing between closely related elements |
+| `theme.spacing.sm` | 8 pt | Default inner padding |
+| `theme.spacing.md` | 12 pt | Standard component spacing |
+| `theme.spacing.lg` | 16 pt | Section separation |
+| `theme.spacing.xl` | 24 pt | Large gaps between sections |
+
+### Corner Radii
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `theme.radii.sm` | 6 pt | Subtle rounding (badges, tags) |
+| `theme.radii.md` | 10 pt | Standard component rounding (cards, buttons) |
+| `theme.radii.lg` | 16 pt | Large rounding (modals, panels) |
+| `theme.radii.pill` | 999 pt | Fully rounded (pills, circular buttons) |
+
+### Shadow
+
+| Field | Purpose |
+|-------|---------|
+| `theme.shadow.color` | Shadow color (opacity varies by theme) |
+| `theme.shadow.radius` | Blur radius |
+| `theme.shadow.x` | Horizontal offset |
+| `theme.shadow.y` | Vertical offset |
+
+### Visualization Colors (Okabe-Ito)
+
+Visualization colors follow the Okabe-Ito palette, designed for colorblind accessibility. Both light and dark theme variants are provided. Access via `theme.vizColors.<token>`.
+
+| Token | Description |
+|-------|-------------|
+| `theme.vizColors.primary` | Orange |
+| `theme.vizColors.secondary` | Sky Blue |
+| `theme.vizColors.tertiary` | Bluish Green |
+| `theme.vizColors.quaternary` | Yellow |
+| `theme.vizColors.quinary` | Blue |
+| `theme.vizColors.senary` | Vermillion |
+| `theme.vizColors.septenary` | Reddish Purple |
+| `theme.vizColors.octenary` | Neutral anchor (black in light, white in dark) |
+| `theme.vizColors.highlight` | Semantic alias for highlighted data (maps to Sky Blue) |
+| `theme.vizColors.selected` | Semantic alias for selected data (maps to Orange) |
+| `theme.vizColors.error` | Semantic alias for error data (maps to Vermillion) |
 
 ## Components
 ```swift

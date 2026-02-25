@@ -30,12 +30,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Mobile-specific components are grouped separately and labeled iOS/iPadOS-only so a developer knows immediately they cannot use them on macOS
   4. A developer can follow the theme setup section and wire up DSThemeProvider, light/dark selection, and @Environment(\.dsTheme) access from README alone
   5. The SPM installation block has the correct repository URL and platform requirements (iOS 26, macOS 14) so a developer can integrate the package on the first try
-**Plans**: TBD
+**Plans:** 3 plans
 
 Plans:
-- [ ] 01-01: Rename pass — replace all FocusDesignSystem occurrences in prose, headings, and code blocks; update file path references
-- [ ] 01-02: Component catalog expansion — generate full DS* component list from filesystem, organize into groups, mark Mobile as iOS/iPadOS-only
-- [ ] 01-03: Module and theme documentation — write module dependency explanation, theme setup section, SPM installation block with correct URL
+- [ ] 01-01-PLAN.md — Rename pass: replace all FocusDesignSystem references, fix file paths, add SPM installation block, add module dependency decision table
+- [ ] 01-02-PLAN.md — Component catalog expansion: verify filesystem inventory, write 5-group catalog with mini tables, mark Mobile as iOS/iPadOS
+- [ ] 01-03-PLAN.md — Theme and token documentation: concept-first theme setup section, token reference tables for all token groups
 
 ### Phase 2: Developer Guides — DEVELOPMENT_GUIDE and VALIDATION
 **Goal**: DEVELOPMENT_GUIDE and VALIDATION.md use correct module paths and guide contributors and form-component consumers accurately

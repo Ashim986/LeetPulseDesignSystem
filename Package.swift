@@ -13,51 +13,15 @@ let package = Package(
         .library(
             name: "LeetPulseDesignSystem",
             targets: ["LeetPulseDesignSystem"]
-        ),
-        .library(
-            name: "LeetPulseDesignSystemCore",
-            targets: ["LeetPulseDesignSystemCore"]
-        ),
-        .library(
-            name: "LeetPulseDesignSystemState",
-            targets: ["LeetPulseDesignSystemState"]
-        ),
-        .library(
-            name: "LeetPulseDesignSystemComponents",
-            targets: ["LeetPulseDesignSystemComponents"]
         )
     ],
     targets: [
         .target(
-            name: "LeetPulseDesignSystemCore"
-        ),
-        .target(
-            name: "LeetPulseDesignSystemState",
-            dependencies: ["LeetPulseDesignSystemCore"]
-        ),
-        .target(
-            name: "LeetPulseDesignSystemComponents",
-            dependencies: ["LeetPulseDesignSystemCore", "LeetPulseDesignSystemState"]
-        ),
-        .target(
-            name: "LeetPulseDesignSystem",
-            dependencies: [
-                "LeetPulseDesignSystemCore",
-                "LeetPulseDesignSystemState",
-                "LeetPulseDesignSystemComponents"
-            ]
+            name: "LeetPulseDesignSystem"
         ),
         .testTarget(
-            name: "LeetPulseDesignSystemCoreTests",
-            dependencies: ["LeetPulseDesignSystemCore"]
-        ),
-        .testTarget(
-            name: "LeetPulseDesignSystemStateTests",
-            dependencies: ["LeetPulseDesignSystemState"]
-        ),
-        .testTarget(
-            name: "LeetPulseDesignSystemComponentsTests",
-            dependencies: ["LeetPulseDesignSystemComponents"]
+            name: "LeetPulseDesignSystemTests",
+            dependencies: ["LeetPulseDesignSystem"]
         )
     ]
 )

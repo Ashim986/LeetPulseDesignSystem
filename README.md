@@ -2,6 +2,7 @@
 
 LeetPulseDesignSystem is a multi-platform Swift Package (macOS/iOS/iPadOS) that provides
 consistent, themeable UI components with state machines and 100% unit-testable logic.
+One module, one import: `import LeetPulseDesignSystem`.
 
 Repository: `https://github.com/Ashim986/LeetPulseDesignSystem`
 
@@ -27,23 +28,17 @@ Add LeetPulseDesignSystem via Swift Package Manager:
 
 ## Package Structure
 
-LeetPulseDesignSystem is organized into four Swift modules. The umbrella module re-exports all three sub-modules via `@_exported import`, so most apps only need a single import.
+LeetPulseDesignSystem ships as a single Swift module. Add the dependency and import it:
 
-**Module dependency graph:**
+```swift
+import LeetPulseDesignSystem
+```
 
-- `LeetPulseDesignSystemCore` — tokens, themes, DSThemeProvider
-- `LeetPulseDesignSystemState` (depends on Core) — state machines, validation rules
-- `LeetPulseDesignSystemComponents` (depends on Core + State) — all DS* UI components
-- `LeetPulseDesignSystem` (umbrella) — re-exports all three modules
+Source code is organized into subdirectories for clarity:
 
-**Which module should I import?**
-
-| If you need | Import |
-|-------------|--------|
-| Just tokens, themes, DSThemeProvider | `import LeetPulseDesignSystemCore` |
-| State machines, validation rules | `import LeetPulseDesignSystemState` |
-| UI components (DS* views) | `import LeetPulseDesignSystemComponents` |
-| Everything (recommended for apps) | `import LeetPulseDesignSystem` |
+- `Sources/LeetPulseDesignSystem/Core/` — tokens, themes, DSThemeProvider
+- `Sources/LeetPulseDesignSystem/State/` — state machines, validation rules
+- `Sources/LeetPulseDesignSystem/Components/` — all DS* UI components
 
 ## Themes
 
@@ -280,7 +275,7 @@ DSTreeGraphView(
 
 ## Component Catalog
 
-60 public components across 5 functional groups. Components marked **iOS/iPadOS** reside in `Sources/LeetPulseDesignSystemComponents/Mobile/` and use `DSMobileTokens` from `LeetPulseDesignSystemCore` instead of `DSTheme`. They compile on all platforms but are designed for iOS and iPadOS layouts.
+60 public components across 5 functional groups. Components marked **iOS/iPadOS** reside in `Sources/LeetPulseDesignSystem/Components/Mobile/` and use `DSMobileTokens` instead of `DSTheme`. They compile on all platforms but are designed for iOS and iPadOS layouts.
 
 ### Primitives
 
@@ -380,7 +375,7 @@ Data display, charts, and algorithm visualization components.
 ## Documentation
 - iOS + iPadOS roadmap: `Docs/IOS_IPADOS_ROADMAP.md`
 - Development guide: `Docs/DEVELOPMENT_GUIDE.md`
-- Sample screens: `Sources/LeetPulseDesignSystemComponents/Examples/DSSampleScreens.swift`
+- Sample screens: `Sources/LeetPulseDesignSystem/Components/Examples/DSSampleScreens.swift`
 - Validation framework: `Docs/VALIDATION.md`
 
 ## State Machines

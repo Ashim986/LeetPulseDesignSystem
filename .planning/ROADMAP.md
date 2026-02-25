@@ -27,7 +27,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Success Criteria** (what must be TRUE):
   1. A developer can copy any import statement from README.md and it compiles without editing — no FocusDesignSystem references exist anywhere in the file (prose, headings, or code blocks)
   2. A developer can find every public DS* component by browsing the README catalog — the catalog count matches `find Sources/ -name "DS*.swift"` filtered to public types
-  3. Mobile-specific components are labeled iOS/iPadOS-only inline in the Platform column of their functional group, so a developer reading any group row knows immediately whether the component is mobile-only
+  3. Mobile-specific components are labeled iOS/iPadOS-only inline in the Platform column of their functional group, so a developer reading any group row knows immediately whether the component is mobile-only (inline-labeling approach per CONTEXT.md decision)
   4. A developer can follow the theme setup section and wire up DSThemeProvider, light/dark selection, and @Environment(\.dsTheme) access from README alone
   5. The SPM installation block has the correct repository URL and platform requirements (iOS 26, macOS 14) so a developer can integrate the package on the first try
 **Plans:** 4 plans (3 executed + 1 gap closure)
@@ -36,7 +36,7 @@ Plans:
 - [x] 01-01-PLAN.md — Rename pass: replace all FocusDesignSystem references, fix file paths, add SPM installation block, add module dependency decision table
 - [x] 01-02-PLAN.md — Component catalog expansion: verify filesystem inventory, write 5-group catalog with mini tables, mark Mobile as iOS/iPadOS
 - [x] 01-03-PLAN.md — Theme and token documentation: concept-first theme setup section, token reference tables for all token groups
-- [ ] 01-04-PLAN.md — Gap closure: update CATL-02 and success criterion 3 to reflect inline-labeling decision; correct SPM URL to actual git remote
+- [x] 01-04-PLAN.md — Gap closure: update CATL-02 and success criterion 3 to reflect inline-labeling decision; correct SPM URL to actual git remote
 
 ### Phase 2: Developer Guides — DEVELOPMENT_GUIDE and VALIDATION
 **Goal**: DEVELOPMENT_GUIDE and VALIDATION.md use correct module paths and guide contributors and form-component consumers accurately
@@ -102,7 +102,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. README — Naming Foundation and Component Catalog | 3/4 | Gap closure pending | 2026-02-25 |
+| 1. README — Naming Foundation and Component Catalog | 4/4 | Complete | 2026-02-25 |
 | 2. Developer Guides — DEVELOPMENT_GUIDE and VALIDATION | 0/3 | Not started | - |
 | 3. Per-Component Documentation — API Surface and Usage Examples | 0/3 | Not started | - |
 | 4. IOS_IPADOS_ROADMAP — Delivery Status | 0/1 | Not started | - |

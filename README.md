@@ -4,7 +4,7 @@ LeetPulseDesignSystem is a multi-platform Swift Package (macOS/iOS/iPadOS) that 
 consistent, themeable UI components with state machines and 100% unit-testable logic.
 One module, one import: `import LeetPulseDesignSystem`.
 
-Repository: `https://github.com/Ashim986/LeetPulseDesignSystem`
+Repository: `https://github.com/Ashim986/DSFocusFlow`
 
 ## Installation
 
@@ -12,7 +12,7 @@ Add LeetPulseDesignSystem via Swift Package Manager:
 
 ```swift
 // In your Package.swift dependencies:
-.package(url: "https://github.com/Ashim986/LeetPulseDesignSystem", from: "1.0.0")
+.package(url: "https://github.com/Ashim986/DSFocusFlow", from: "1.0.0")
 ```
 
 **Minimum deployment targets:**

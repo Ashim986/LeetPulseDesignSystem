@@ -17,7 +17,7 @@ Requirements for this documentation update milestone. Each maps to roadmap phase
 ### Component Catalog
 
 - [x] **CATL-01**: README lists all public `DS*` components from the filesystem (62+ components, not from memory)
-- [x] **CATL-02**: Components organized into logical groups: Primitives, Form Controls, Navigation, Feedback, Visualization, Mobile-specific
+- [x] **CATL-02**: Components organized into logical groups: Primitives, Form Controls, Navigation, Feedback, Visualization — with mobile-specific components labeled inline (iOS/iPadOS) in the Platform column within their functional group
 - [x] **CATL-03**: Each group has a one-line description of when to reach for it
 - [x] **CATL-04**: Mobile-specific components clearly marked as iOS/iPadOS-only
 

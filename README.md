@@ -5,6 +5,19 @@ consistent, themeable UI components with state machines and 100% unit-testable l
 
 Repository: `https://github.com/Ashim986/LeetPulseDesignSystem`
 
+## Installation
+
+Add LeetPulseDesignSystem via Swift Package Manager:
+
+```swift
+// In your Package.swift dependencies:
+.package(url: "https://github.com/Ashim986/LeetPulseDesignSystem", from: "1.0.0")
+```
+
+**Minimum deployment targets:**
+- iOS 26+
+- macOS 14+
+
 ## Goals
 - Themeable light/dark tokens
 - Reusable, configurable components
@@ -13,18 +26,24 @@ Repository: `https://github.com/Ashim986/LeetPulseDesignSystem`
 - No dependency on caller app state
 
 ## Package Structure
-- `LeetPulseDesignSystemCore`
-  - Tokens: colors, typography, spacing, radii, shadow
-  - Theme and environment injection
-- `LeetPulseDesignSystemState`
-  - Reducer + state store
-- `LeetPulseDesignSystemComponents`
-  - Card, Header, Button, Badge, ProgressRing
-  - TextField, TextArea, Toggle, SegmentedControl, EmptyState, FormField, Select
-  - ListRow, SectionHeader, MetricCard, Toast, Alert
-  - Bubble, PointerBadge, Arrow, CurvedArrow, GraphView, TreeGraphView
-- `LeetPulseDesignSystem` (umbrella)
-  - Re-exports the modules above
+
+LeetPulseDesignSystem is organized into four Swift modules. The umbrella module re-exports all three sub-modules via `@_exported import`, so most apps only need a single import.
+
+**Module dependency graph:**
+
+- `LeetPulseDesignSystemCore` — tokens, themes, DSThemeProvider
+- `LeetPulseDesignSystemState` (depends on Core) — state machines, validation rules
+- `LeetPulseDesignSystemComponents` (depends on Core + State) — all DS* UI components
+- `LeetPulseDesignSystem` (umbrella) — re-exports all three modules
+
+**Which module should I import?**
+
+| If you need | Import |
+|-------------|--------|
+| Just tokens, themes, DSThemeProvider | `import LeetPulseDesignSystemCore` |
+| State machines, validation rules | `import LeetPulseDesignSystemState` |
+| UI components (DS* views) | `import LeetPulseDesignSystemComponents` |
+| Everything (recommended for apps) | `import LeetPulseDesignSystem` |
 
 ## Themes
 ```swift

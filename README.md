@@ -279,47 +279,109 @@ DSTreeGraphView(
 ```
 
 ## Component Catalog
-- DSAlert
-- DSArrow
-- DSBadge
-- DSBubble
-- DSButton
-- DSCard
-- DSCurvedArrow
-- DSEmptyState
-- DSFormField
-- DSGraphView
-- DSHeader
-- DSListRow
-- DSMetricCard
-- DSPointerBadge
-- DSProgressRing
-- DSScaffolds (DSTabScaffold, DSSidebarScaffold)
-- DSSectionHeader
-- DSSegmentedControl
-- DSSidebar
-- DSSelect
-- DSTabBar
-- DSTextArea
-- DSTextField
-- DSToast
-- DSToggle
-- DSTreeGraphView
+
+60 public components across 5 functional groups. Components marked **iOS/iPadOS** reside in `Sources/LeetPulseDesignSystemComponents/Mobile/` and use `DSMobileTokens` from `LeetPulseDesignSystemCore` instead of `DSTheme`. They compile on all platforms but are designed for iOS and iPadOS layouts.
+
+### Primitives
+
+Low-level building blocks and shapes, composable into higher-level components.
+
+| Component | Description | Platform |
+|-----------|-------------|----------|
+| DSArrow | Directional arrow shape | All |
+| DSBubble | Circular label badge for compact values | All |
+| DSCard | Surface container with elevation and outline styles | All |
+| DSConsoleOutput | Monospaced text output panel | All |
+| DSCurvedArrow | Curved directional arrow with configurable offset | All |
+| DSExpandableText | Truncated text with expand/collapse toggle | All |
+| DSImage | Themed image container with loading states | All |
+| DSPointerBadge | Pointer marker badge for graph visualization | All |
+| DSText | Themed text label applying DSTheme typography and color | All |
+
+### Form Controls
+
+Input, selection, and validation components for building forms and interactive controls.
+
+| Component | Description | Platform |
+|-----------|-------------|----------|
+| DSActionButton | Compact action trigger with icon support | All |
+| DSButton | Primary action button with loading, disabled, and icon states | All |
+| DSFormField | Form field wrapper with label and validation display | All |
+| DSIconButton | Icon-only button for toolbar actions | All |
+| DSPicker | Value picker with configurable options | All |
+| DSPomodoroSegmentedControl | Pomodoro-specific segmented timer control | iOS/iPadOS |
+| DSSearchBar | Search input with clear button and keyboard handling | iOS/iPadOS |
+| DSSegmentedControl | Horizontal segmented selection control | All |
+| DSSelect | Dropdown-style selection with options list | All |
+| DSTextArea | Multi-line text input field | All |
+| DSTextField | Single-line text input with optional validation state | All |
+| DSTextValidation | Text input validation policy definitions | All |
+| DSToggle | On/off toggle switch | All |
+
+### Navigation
+
+Structural navigation patterns and layout scaffolding for app shells.
+
+| Component | Description | Platform |
+|-----------|-------------|----------|
+| DSBottomTabBar | Bottom tab bar for iOS tab navigation | iOS/iPadOS |
+| DSNavItem | Model type for navigation items (tab bars, sidebars, scaffolds) | All |
+| DSScaffolds | Layout scaffolds: DSTabScaffold and DSSidebarScaffold | All |
+| DSSidebar | Vertical sidebar navigation list | All |
+| DSSidebarNav | Mobile-optimized sidebar navigation | iOS/iPadOS |
+| DSTabBar | Horizontal tab bar navigation | All |
+
+### Feedback
+
+Status indicators, alerts, progress displays, and informational cards.
+
+| Component | Description | Platform |
+|-----------|-------------|----------|
+| DSAlert | Dismissible alert banner with severity styles | All |
+| DSBadge | Status badge with text and color variants | All |
+| DSCompactHeaderBar | Condensed header bar for secondary screens | All |
+| DSDailyGoalCard | Daily goal progress card | iOS/iPadOS |
+| DSEmptyState | Placeholder view for empty data states | All |
+| DSFocusTimeCard | Focus session time display card | iOS/iPadOS |
+| DSHeader | Section header with title and optional subtitle | All |
+| DSHeaderBar | Mobile navigation header bar | iOS/iPadOS |
+| DSInlineErrorBanner | Inline error message display | All |
+| DSListRow | Configurable list row with leading and trailing content | All |
+| DSMetricCard | Metric display card with value, trend, and detail | All |
+| DSMetricCardView | Mobile-optimized metric card layout | iOS/iPadOS |
+| DSProblemCard | Problem and challenge display card | iOS/iPadOS |
+| DSProgressHeader | Header with integrated progress indicator | All |
+| DSProgressRing | Circular progress indicator ring | All |
+| DSScheduleRow | Schedule entry row display | iOS/iPadOS |
+| DSSectionHeader | Section divider with title | All |
+| DSSettingsRow | Settings menu row with label and accessory | iOS/iPadOS |
+| DSSignOutButton | Sign out action button | iOS/iPadOS |
+| DSStartFocusCTA | Call-to-action for starting focus sessions | iOS/iPadOS |
+| DSStatusCard | Status information card with icon and message | All |
+| DSStreakBadge | Streak counter badge display | iOS/iPadOS |
+| DSSurfaceCard | Elevated surface card container | iOS/iPadOS |
+| DSTaskRow | Task list row with completion state | iOS/iPadOS |
+| DSTimerRing | Countdown timer ring display | iOS/iPadOS |
+| DSToast | Temporary notification toast message | All |
+
+### Visualization
+
+Data display, charts, and algorithm visualization components.
+
+| Component | Description | Platform |
+|-----------|-------------|----------|
+| DSBarChart | Vertical bar chart for data comparison | iOS/iPadOS |
+| DSCalendarGrid | Calendar grid for date-based data display | iOS/iPadOS |
+| DSCodeViewer | Syntax-highlighted code display panel | iOS/iPadOS |
+| DSGraphView | Node-and-edge graph visualization (Canvas-rendered) | All |
+| DSLineChart | Line chart for trend data display | iOS/iPadOS |
+| DSTreeGraphView | Tree structure visualization (Canvas-rendered) | All |
 
 ## Documentation
 - iOS + iPadOS roadmap: `Docs/IOS_IPADOS_ROADMAP.md`
 - Development guide: `Docs/DEVELOPMENT_GUIDE.md`
 - Sample screens: `Sources/LeetPulseDesignSystemComponents/Examples/DSSampleScreens.swift`
 - Validation framework: `Docs/VALIDATION.md`
-
-## Primitives (Intended Scope)
-The following primitives are designed for cross-platform reuse and should stay
-agnostic to any single app feature:
-- Bubble, PointerBadge, Arrow, CurvedArrow
-- GraphView, TreeGraphView
-
-App-specific compositions (for example, DataJourney layouts or trace-driven
-visualizations) should remain inside the app layer and compose these primitives.
 
 ## State Machines
 ```swift

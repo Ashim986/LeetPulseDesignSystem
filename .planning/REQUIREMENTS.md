@@ -79,13 +79,35 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| — | — | — |
+| NAME-01 | Phase 1 | Pending |
+| NAME-02 | Phase 1 | Pending |
+| NAME-03 | Phase 1 | Pending |
+| NAME-04 | Phase 1 | Pending |
+| CATL-01 | Phase 1 | Pending |
+| CATL-02 | Phase 1 | Pending |
+| CATL-03 | Phase 1 | Pending |
+| CATL-04 | Phase 1 | Pending |
+| USAGE-03 | Phase 1 | Pending |
+| USAGE-04 | Phase 1 | Pending |
+| USAGE-06 | Phase 1 | Pending |
+| GUIDE-01 | Phase 2 | Pending |
+| GUIDE-02 | Phase 2 | Pending |
+| GUIDE-03 | Phase 2 | Pending |
+| GUIDE-04 | Phase 2 | Pending |
+| USAGE-05 | Phase 2 | Pending |
+| USAGE-01 | Phase 3 | Pending |
+| USAGE-02 | Phase 3 | Pending |
+| GUIDE-05 | Phase 3 | Pending |
+| GUIDE-06 | Phase 3 | Pending |
+| GUIDE-07 | Phase 3 | Pending |
+| REL-02 | Phase 4 | Pending |
+| REL-01 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 22 total
-- Mapped to phases: 0
-- Unmapped: 22
+- v1 requirements: 23 total
+- Mapped to phases: 23
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-25*
-*Last updated: 2026-02-25 after initial definition*
+*Last updated: 2026-02-25 after roadmap creation*

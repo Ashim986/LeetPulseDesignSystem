@@ -16,17 +16,17 @@ Requirements for this documentation update milestone. Each maps to roadmap phase
 
 ### Component Catalog
 
-- [ ] **CATL-01**: README lists all public `DS*` components from the filesystem (62+ components, not from memory)
-- [ ] **CATL-02**: Components organized into logical groups: Primitives, Form Controls, Navigation, Feedback, Visualization, Mobile-specific
-- [ ] **CATL-03**: Each group has a one-line description of when to reach for it
-- [ ] **CATL-04**: Mobile-specific components clearly marked as iOS/iPadOS-only
+- [x] **CATL-01**: README lists all public `DS*` components from the filesystem (62+ components, not from memory)
+- [x] **CATL-02**: Components organized into logical groups: Primitives, Form Controls, Navigation, Feedback, Visualization, Mobile-specific
+- [x] **CATL-03**: Each group has a one-line description of when to reach for it
+- [x] **CATL-04**: Mobile-specific components clearly marked as iOS/iPadOS-only
 
 ### Usage Documentation
 
 - [ ] **USAGE-01**: Every public component has at least one copy-pasteable Swift usage example verified against actual `public init` signature
 - [ ] **USAGE-02**: Config/State/Event API surface documented per component (what properties Config accepts, what State holds, what Events exist)
-- [ ] **USAGE-03**: Theme setup instructions cover `DSThemeProvider`, light/dark selection, and `@Environment(\.dsTheme)` access
-- [ ] **USAGE-04**: Theming token reference lists all token names (colors, spacing, radii, typography) developers can use in custom components
+- [x] **USAGE-03**: Theme setup instructions cover `DSThemeProvider`, light/dark selection, and `@Environment(\.dsTheme)` access
+- [x] **USAGE-04**: Theming token reference lists all token names (colors, spacing, radii, typography) developers can use in custom components
 - [ ] **USAGE-05**: Validation framework usage shows correct import (`LeetPulseDesignSystemState`) and full form integration example (`DSFormField` + `DSTextField` + `DSValidationFactory`)
 - [x] **USAGE-06**: Module dependency explanation clarifies which module to import for which use case (Core vs State vs Components vs umbrella)
 
@@ -83,12 +83,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | NAME-02 | Phase 1 | Complete |
 | NAME-03 | Phase 1 | Complete |
 | NAME-04 | Phase 1 | Complete |
-| CATL-01 | Phase 1 | Pending |
-| CATL-02 | Phase 1 | Pending |
-| CATL-03 | Phase 1 | Pending |
-| CATL-04 | Phase 1 | Pending |
-| USAGE-03 | Phase 1 | Pending |
-| USAGE-04 | Phase 1 | Pending |
+| CATL-01 | Phase 1 | Complete |
+| CATL-02 | Phase 1 | Complete |
+| CATL-03 | Phase 1 | Complete |
+| CATL-04 | Phase 1 | Complete |
+| USAGE-03 | Phase 1 | Complete |
+| USAGE-04 | Phase 1 | Complete |
 | USAGE-06 | Phase 1 | Complete |
 | GUIDE-01 | Phase 2 | Pending |
 | GUIDE-02 | Phase 2 | Pending |
@@ -110,4 +110,4 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 ---
 *Requirements defined: 2026-02-25*
-*Last updated: 2026-02-25 after roadmap creation*
+*Last updated: 2026-02-25 after Phase 1 completion (plans 01-01, 01-02, 01-03)*

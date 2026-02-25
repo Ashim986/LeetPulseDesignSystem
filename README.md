@@ -1,9 +1,9 @@
-# FocusDesignSystem
+# LeetPulseDesignSystem
 
-FocusDesignSystem is a multi-platform Swift Package (macOS/iOS/iPadOS) that provides
+LeetPulseDesignSystem is a multi-platform Swift Package (macOS/iOS/iPadOS) that provides
 consistent, themeable UI components with state machines and 100% unit-testable logic.
 
-Repository: `https://github.com/Ashim986/DSFocusFlow`
+Repository: `https://github.com/Ashim986/LeetPulseDesignSystem`
 
 ## Goals
 - Themeable light/dark tokens
@@ -13,22 +13,22 @@ Repository: `https://github.com/Ashim986/DSFocusFlow`
 - No dependency on caller app state
 
 ## Package Structure
-- `FocusDesignSystemCore`
+- `LeetPulseDesignSystemCore`
   - Tokens: colors, typography, spacing, radii, shadow
   - Theme and environment injection
-- `FocusDesignSystemState`
+- `LeetPulseDesignSystemState`
   - Reducer + state store
-- `FocusDesignSystemComponents`
+- `LeetPulseDesignSystemComponents`
   - Card, Header, Button, Badge, ProgressRing
   - TextField, TextArea, Toggle, SegmentedControl, EmptyState, FormField, Select
   - ListRow, SectionHeader, MetricCard, Toast, Alert
   - Bubble, PointerBadge, Arrow, CurvedArrow, GraphView, TreeGraphView
-- `FocusDesignSystem` (umbrella)
+- `LeetPulseDesignSystem` (umbrella)
   - Re-exports the modules above
 
 ## Themes
 ```swift
-import FocusDesignSystem
+import LeetPulseDesignSystem
 
 let theme = DSTheme.light
 DSThemeProvider(theme: theme) {
@@ -38,7 +38,7 @@ DSThemeProvider(theme: theme) {
 
 ## Components
 ```swift
-import FocusDesignSystem
+import LeetPulseDesignSystem
 
 DSButton("Continue", config: .init(style: .primary)) {
     // action
@@ -182,7 +182,7 @@ DSTreeGraphView(
 ## Documentation
 - iOS + iPadOS roadmap: `Docs/IOS_IPADOS_ROADMAP.md`
 - Development guide: `Docs/DEVELOPMENT_GUIDE.md`
-- Sample screens: `Sources/FocusDesignSystemComponents/Examples/DSSampleScreens.swift`
+- Sample screens: `Sources/LeetPulseDesignSystemComponents/Examples/DSSampleScreens.swift`
 - Validation framework: `Docs/VALIDATION.md`
 
 ## Primitives (Intended Scope)

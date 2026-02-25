@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Mobile-specific components are grouped separately and labeled iOS/iPadOS-only so a developer knows immediately they cannot use them on macOS
   4. A developer can follow the theme setup section and wire up DSThemeProvider, light/dark selection, and @Environment(\.dsTheme) access from README alone
   5. The SPM installation block has the correct repository URL and platform requirements (iOS 26, macOS 14) so a developer can integrate the package on the first try
-**Plans:** 3 plans
+**Plans:** 2/3 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md — Rename pass: replace all FocusDesignSystem references, fix file paths, add SPM installation block, add module dependency decision table
@@ -101,7 +101,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. README — Naming Foundation and Component Catalog | 1/3 | In progress | - |
+| 1. README — Naming Foundation and Component Catalog | 2/3 | In Progress|  |
 | 2. Developer Guides — DEVELOPMENT_GUIDE and VALIDATION | 0/3 | Not started | - |
 | 3. Per-Component Documentation — API Surface and Usage Examples | 0/3 | Not started | - |
 | 4. IOS_IPADOS_ROADMAP — Delivery Status | 0/1 | Not started | - |
